@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div class="container">
+    <!-- 事件绑定 -->
+    <!--  ngNativeValidate启用原生验证-->
+    <form (ngSubmit)="onSubmit()" ngNativeValidate class="login-form">
+        <!-- 插值 -->
+        <h2>{{pageTitle}}</h2>
+        <div class="form-item">
+           <!-- 双向绑定 -->
+            <input class='input' type="text" placeholder="用户名" name="username"
+            [(ngModel)]="user.username" required />
+        </div>
+        <div class="form-item">
+            <input class="input" type="password" placeholder="密码" name="password"
+            [(ngModel)]="user.password" required/>
+        </div>
+        
+        <div class="form-item">
+            <input type="submit" value="登录" class="input btn"/>
+        </div>
+        <a class="link" href="/auth/register">没有账号，前往注册</a>
+        <!-- 条件判断 -->
+        @if (loginCode === 0) {
+            <div class="form-item success msg">
+              <p>{{loginMsg}}</p>
+            </div>
+        } @else if(loginCode > 0) {
+            <div class="form-item error msg">
+                <p>{{loginMsg}}</p>
+                <p>已经尝试登录次数：{{loginAttempts}}</p>
+            </div>
+        }
+    </form>
+</div>

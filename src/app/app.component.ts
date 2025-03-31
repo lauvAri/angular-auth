@@ -21,4 +21,9 @@ import { RegisterComponent } from './auth/register/register.component';
 })
 export class AppComponent {
   title = 'angular-login';
+  
+  links = [
+    {href:'/auth/login', name:"登录"},
+    {href:'/auth/register', name:"注册"}
+  ]
 }

@@ -1,8 +1,10 @@
-<nav>
-  <ul>
-    <li><a href="/auth/login">login</a></li>
-    <li><a href="/auth/register">register</a></li>
-  </ul>
+<nav class="nav-bar">
+  <!-- 循环 -->
+  <div>
+    @for (link of links; track $index) {
+        <a href={{link.href}} class="link">{{link.name}}</a>
+    }
+  </div>
 </nav>
 
 <router-outlet />

@@ -1,0 +1,13 @@
+.nav-bar {
+  background-image: linear-gradient(to right, #22d3ee, #34d399);
+  padding: 24px;
+}
+
+.link {
+    background-color: #3b82f6;
+    margin:12px;
+    padding: 6px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
