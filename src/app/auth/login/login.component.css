@@ -44,13 +44,24 @@
 
 .btn {
   background-color: black;
+  transition: all 0.5s linear;
   color:white;
+  cursor: pointer;
   font-weight: bold;
+}
+
+.btn:hover {
+  background-color: gray;
+  transition: all 0.5s linear;
 }
 
 .link {
   color:white;
   text-decoration: none;
+}
+
+.link:hover{
+  color: black;
 }
 
 .msg {
