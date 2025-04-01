@@ -38,8 +38,21 @@ export class RegisterComponent {
       this.registerMsg = '注册失败 密码中不得包括特殊字符';
       this.registerCode = 5;
     } else{
-      this.registerMsg = '注册成功';
-      this.registerCode = 0;
+      fetch(`${this.configService.backendBaseUrl}/users`, {
+        method: 'POST',
+        body: JSON.stringify(this.user),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+         this.registerMsg = data.message;
+         this.registerCode = data.code;
+      })
+      .catch(error => {
+        console.error(error);
+      })
     }
   }
 
