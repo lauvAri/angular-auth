@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ConfigService } from '../../config.service'; // 导入ConfigService
 
 @Component({
   selector: 'app-register',
@@ -15,9 +16,12 @@ export class RegisterComponent {
   registerMsg = '';
   registerCode = -1;
 
+  constructor(private configService: ConfigService) { } // 注入ConfigService
+
   onSubmit() {
     this.registerAttempts++;
     console.log(this.user);
+    console.log('Backend Base URL:', this.configService.backendBaseUrl); // 使用ConfigService中的base URL
     if (this.user.username.length < 5) {
       this.registerMsg = '注册失败 用户名长度应大于5';
       this.registerCode = 1;
