@@ -1,1 +1,33 @@
-<p>register works!</p>
+<div class="container">
+  <form (ngSubmit)="onSubmit()" ngNativeValidate class="register-form">
+      <h2>{{pageTitle}}</h2>
+      <div class="form-item">
+         <!-- 双向绑定 -->
+          <input class='input' type="text" placeholder="用户名" name="username"
+          [(ngModel)]="user.username" required />
+      </div>
+      <div class="form-item">
+          <input class="input" type="password" placeholder="密码" name="password"
+          [(ngModel)]="user.password" required/>
+      </div>
+      <div class="form-item">
+          <input class="input" type="password" placeholder="确认密码" name="confirmPassword"
+          [(ngModel)]="user.confirmPassword" required />
+      </div>
+      <div class="form-item">
+          <input type="submit" value="注册" class="input btn"/>
+      </div>
+      <a class="link" href="/auth/login">已有账号，前往登录</a>
+      <!-- 条件判断 -->
+      @if (registerCode === 0) {
+        <div class="form-item success msg">
+          <p>{{registerMsg}}</p>
+        </div>
+    } @else if(registerCode > 0) {
+        <div class="form-item error msg">
+            <p>{{registerMsg}}</p>
+            <p>已经尝试注册次数：{{registerAttempts}}</p>
+        </div>
+    }
+  </form>
+</div>
